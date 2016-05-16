@@ -1,0 +1,53 @@
+// {
+//   "manifest_version": 2,
+
+//   "name": "Emoji Melodies",
+//   "description": "This extension extracts a melody from sequences of emoji",
+//   "version": "1.0",
+
+//   "content_scripts": [
+//     {
+//       "matches": ["http://*/*"],
+//       "js": ["contentScript.js"]
+//     }
+//   ],
+
+//   "browser_action": {
+//     "default_title" : "emoji melody"
+//   },
+//   "permissions": [
+//     "activeTab",
+//     "https://ajax.googleapis.com/"
+//   ]
+// }
+
+ {
+  "name": "Emoji Tunes",
+  "description": "do an emoj",
+  "version": "1.0",
+  "icons":{"128":"tweety.png"},
+  "permissions": [
+    "activeTab",
+    "webNavigation",
+    "*://*/*"
+  ],
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  "content_scripts": [
+      {
+        "matches": ["*://*/*"],
+        "js": ["contentScript.js"],
+        "run_at": "document_end"
+      }
+    ],
+  "browser_action": {
+    "default_title": "auto-emoji-playback",
+    "default_icon" : "tweety.png"
+  },
+  "web_accessible_resources": [
+    "*.mp3"
+  ],
+  "manifest_version": 2
+}
